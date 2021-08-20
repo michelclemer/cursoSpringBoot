@@ -8,6 +8,7 @@ import javax.persistence.ManyToOne;
 
 import com.educandoweb.course.entities.Order;
 import com.educandoweb.course.entities.Product;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Embeddable
@@ -20,10 +21,10 @@ public class OrderItemPK implements Serializable {
 	@JoinColumn(name="order_id")
 	private Order order;
 	@ManyToOne
-	@JoinColumn(name="produit_id")
+	@JoinColumn(name="product_id")
 	private Product product;
 	
-	
+	@JsonIgnore
 	public Order getOrder() {
 		return order;
 	}
